@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VBench: Comprehensive Benchmark Suite for Video Generative Models">
+  <meta name="keywords" content="Evaluation, Benchmark, Prompts, Dataset, Video Generation, Text-to-Video, Stable Diffusion, AIGC, Image Generation, MMLab, Shanghai AI Lab">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VBench: Comprehensive Benchmark Suite for Video Generative Models</title>
+
+<!--   Global site tag (gtag.js) - Google Analytics-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZVQZ7NHC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y5ZVQZ7NHC');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+  <link rel="stylesheet" href="./assets/vbench/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/vbench/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/vbench/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/vbench/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./assets/vbench/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./assets/vbench/js/fontawesome.all.min.js"></script>
+  <script src="./assets/vbench/js/bulma-carousel.min.js"></script>
+  <script src="./assets/vbench/js/bulma-slider.min.js"></script>
+  <script src="./assets/vbench/js/index.js"></script>
+</head>
+<body>
+
+<!-- title -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span style="color:#B9770E; font-weight: bold; font-style: italic">VBench</span> : Comprehensive Benchmark<br>Suite for Video Generative Models</h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">CVPR 2024 Highlight</span>
+        </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+
+              <span class="author-block">
+                  <a href="https://ziqihuangg.github.io" target="_blank">Ziqi Huang</a><sup>1*</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="https://github.com/yinanhe" target="_blank">Yinan He</a><sup>2*</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=iH0Aq0YAAAAJ&hl=zh-CN" target="_blank">Jiashuo Yu</a><sup>2*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://github.com/zhangfan-p" target="_blank">Fan Zhang</a><sup>2*</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                  <a href="https://chenyangsi.top/" target="_blank">Chenyang Si</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://yumingj.github.io/" target="_blank">Yuming Jiang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://zhangyuanhan-ai.github.io/" target="_blank">Yuanhan Zhang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://tianxingwu.github.io/" target="_blank">Tianxing Wu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank">Qingyang Jin</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://nattapolchan.github.io/me" target="_blank">Nattapol Chanpaisit</a><sup>1</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://wyhsirius.github.io/" target="_blank">Yaohui Wang</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=3fWSC8YAAAAJ" target="_blank">Xinyuan Chen</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://wanglimin.github.io" target="_blank">Limin Wang</a><sup>4,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://dahua.site/" target="_blank">Dahua Lin</a><sup>2,3&#8224</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://mmlab.siat.ac.cn/yuqiao/index.html" target="_blank">Yu Qiao</a><sup>2&#8224</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>1&#8224</sup>
+              </span>
+          </div>
+          <!-- <br> -->
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">(* equal contributions, &#8224 corresponding authors) </span>
+        </div>
+
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">
+            <sup>1</sup>
+            S-Lab, Nanyang Technological University &nbsp;&nbsp;
+            <sup>2</sup>
+            Shanghai Artificial Intelligence Laboratory &nbsp;&nbsp;
+            <br>
+            <sup>3</sup>
+            The Chinese University of Hong Kong &nbsp;&nbsp;
+            <sup>4</sup>
+            Nanjing University &nbsp;&nbsp;
+          </span>
+        </div>
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2311.17982" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper(VBench)</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2411.13503" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper(VBench++)</span>
+              </a>
+            </span>
+            <!-- Video Link. -->
+            <span class="link-block">
+              <a href="https://www.youtube.com/watch?v=7IhCC8Qqn8Y" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+            </span>
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a href="https://github.com/Vchitect/VBench" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+              </a>
+            </span>
+            <!-- Huggingface Demo Link. -->
+            <span class="link-block">
+              <a href="https://huggingface.co/spaces/Vchitect/VBench_Leaderboard" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <img src="assets/vbench/hf-logo.svg" style="display:block;width:330px;height:240px" />
+                </span>
+                <span>Huggingface Demo</span>
+              </a>
+            </span>
+            <!-- Dataset Link. -->
+            <!-- <span class="link-block">
+              <a href="" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="far fa-images"></i>
+                </span>
+                <span>Dataset</span>
+              </a> -->
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- teaser -->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+      <div class="hero-body">
+            <img src="assets/vbench/images/dim_results/fig_teaser_new.jpg" style="width:1000px; margin-bottom:10px" alt="Teaser."/>
+      <p style="margin-top: 0;">
+        <b>Overview of VBench.</b> We propose VBench, a comprehensive benchmark suite for video generative models. We design a comprehensive and hierarchical <b>Evaluation Dimension Suite</b> to decompose "video generation quality" into multiple well-defined dimensions to facilitate fine-grained and objective evaluation. For each dimension and each content category, we carefully design a <b>Prompt Suite</b> as test cases, and sample <b>Generated Videos</b> from a set of video generation models. For each evaluation dimension, we specifically design an <b>Evaluation Method Suite</b>, which uses carefully crafted method or designated pipeline for automatic objective evaluation. We also conduct <b>Human Preference Annotation</b> for the generated videos for each dimension, and show that VBench evaluation results are <b>well aligned with human perceptions</b>. VBench provides valuable insights and will be open-sourced.
+      </p>
+    </div>
+  </div>
+</section> -->
+
+<!-- teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop" style="width: 50%; max-width: none;">
+      <div class="hero-body">
+            <img src="assets/vbench/images/dim_results/fig_extention_teaser.jpg" style="width:100%; margin-bottom:10px" alt="Teaser."/>
+      <p style="margin-top: 0;">
+        <b>Overview of VBench.</b> We propose VBench, a comprehensive benchmark suite for video generative models. We design a comprehensive and hierarchical <b>Evaluation Dimension Suite</b> to decompose "video generation quality" into multiple well-defined dimensions to facilitate fine-grained and objective evaluation. For each dimension and each content category, we carefully design a <b>Prompt Suite</b> as test cases, and sample <b>Generated Videos</b> from a set of video generation models. For each evaluation dimension, we specifically design an <b>Evaluation Method Suite</b>, which uses carefully crafted method or designated pipeline for automatic objective evaluation. We also conduct <b>Human Preference Annotation</b> for the generated videos for each dimension, and show that VBench evaluation results are <b>well aligned with human perceptions</b>. VBench can provide valuable insights from multiple perspectives. <b>VBench++</b> supports a wide range of video generation tasks, including text-to-video and image-to-video, with an adaptive Image Suite for fair evaluation across different settings. It evaluates not only technical quality but also the trustworthiness of generative models, offering a comprehensive view of model performance. We continually incorporate more video generative models into VBench to inform the community about the evolving landscape of video generation.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper video. -->
+<section class="hero is-light">
+  <div class="columns is-centered has-text-centered"  style="margin-top: 0px; margin-bottom: 10px;">
+    <div class="column is-three-fifths">
+      <h2 class="title is-3">Video</h2>
+      <div class="publication-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7IhCC8Qqn8Y?si=_gpWAOXWOi2OcaIJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- / Paper video.   -->
+
+
+<!-- Abstract. -->
+<!-- <section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 is-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              Video generation has witnessed significant advancements, yet evaluating these models remains a challenge. A comprehensive evaluation benchmark for video generation is indispensable for two reasons: 1) Existing metrics do not fully align with human perceptions; 2) An ideal evaluation system should provide insights to inform future developments of video generation. To this end, we present <b>VBench</b>, a comprehensive benchmark suite that dissects "video generation quality" into specific, hierarchical, and disentangled dimensions, each with tailored prompts and evaluation methods. VBench has three appealing properties: <b>1) Comprehensive Dimensions</b>: VBench comprises 16 dimensions in video generation (e.g., subject identity inconsistency, motion smoothness, temporal flickering, and spatial relationship, etc).  The evaluation metrics with fine-grained levels reveal individual models' strengths and weaknesses.  <b>2) Human Alignment</b>: We also provide a dataset of human preference annotations to validate our benchmarks' alignment with human perception, for each evaluation dimension respectively. <b>3) Valuable Insights</b>: We look into current models' ability across various evaluation dimensions, and various content types. We also investigate the gaps between video and image generation models. We will open-source VBench, including all prompts, evaluation methods, generated videos, and human preference annotations, and also include more video generation models in VBench to drive forward the field of video generation.
+          </p>
+        </div>
+      </div>
+    </div>
+</section> -->
+<!--/ Abstract. -->
+
+<!-- Abstract. -->
+<section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 is-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+              Video generation has witnessed significant advancements, yet evaluating these models remains a challenge. A comprehensive evaluation benchmark for video generation is indispensable for two reasons: 1) Existing metrics do not fully align with human perceptions; 2) An ideal evaluation system should provide insights to inform future developments of video generation. To this end, we present <b>VBench</b>, a comprehensive benchmark suite that dissects "video generation quality" into specific, hierarchical, and disentangled dimensions, each with tailored prompts and evaluation methods. VBench has three appealing properties: <b>1) Comprehensive Dimensions</b>: VBench comprises 16 dimensions in video generation (e.g., subject identity inconsistency, motion smoothness, temporal flickering, and spatial relationship, etc).  The evaluation metrics with fine-grained levels reveal individual models' strengths and weaknesses.  <b>2) Human Alignment</b>: We also provide a dataset of human preference annotations to validate our benchmarks' alignment with human perception, for each evaluation dimension respectively. <b>3) Valuable Insights</b>: We look into current models' ability across various evaluation dimensions, and various content types. We also investigate the gaps between video and image generation models. <b>4) Versatile Benchmarking</b>: VBench++ is designed to evaluate a wide range of video generation tasks, including text-to-video and image-to-video. We introduce a high-quality Image Suite with an adaptive aspect ratio to enable fair evaluations across different image-to-video generation settings. Beyond assessing technical quality, VBench++ evaluates the trustworthiness of generative models, providing a more holistic view of model performance. <b>5) Full Open-Sourcing</b>: We fully open-source VBench, including all prompts, evaluation methods, generated videos, and human preference annotations. We also continually add new video generation models to the VBench leaderboard to drive forward the field of video generation.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<!--/ Abstract. -->
+
+
+
+<!-- Radar_big -->
+<!-- <section class="section" style="margin-top:-50px; margin-bottom:50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench Evaluation Results of Video Generative Models</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/fig_paper_radar_big_new.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We visualize the evaluation results of four video generation models in 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+      </p>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Radar_Recent Models -->
+<section class="section" style="margin-top:-50px; margin-bottom:-50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench Evaluation Results of Recent Video Generative Models</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/all-dim.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We visualize the evaluation results of the 12 most recent top-performing long video generation models across 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+    </div>
+  </div>
+</section>
+
+<!-- LeaderBoard -->
+<section class="hero is-light" style="margin-top:-50px; margin-bottom:-50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">Leaderboard</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <iframe
+            src="https://vchitect-vbench-leaderboard.hf.space"
+            frameborder="0"
+            width="1400"
+            height="700"
+           ></iframe>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Radar_Open Source -->
+<section class="section" style="margin-top:-50px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench Evaluation Results of Open-Source Models</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/radar-open-new.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We visualize the evaluation results of various publicly available video generation models across 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+    </div>
+  </div>
+</section>
+
+<!-- Radar_Close Source -->
+<section class="section" style="margin-top:-150px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench Evaluation Results of Closed Source Models</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/radar-close-new.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We visualize the evaluation results of various closed sourced video generation models across 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Radar_I2V_wo_SVD -->
+<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench++ Evaluation Results of Image-to-Video Models</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/fig_extension_i2v_wo_svd.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We visualize the evaluation results of six image-to-video generation models in VBench++'s I2V dimensions. 
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+    </div>
+  </div>
+</section>
+
+<!-- Radar_trustworthiness_with_sd -->
+<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench++ Results of the Trustworthiness Dimension</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/radar_trustworthiness_t2v_t2i_4dimensions.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We visualize the trustworthiness evaluation results of visual generative models and image generation models. 
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- <section class="section" style="margin-top:-50px; margin-bottom:-70px;">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+
+      <div class="section-title">
+        <h2 class="title is-3">VBench Evaluation Results per Dimension</h2>
+      </div>
+
+      <div class="table-container">
+        <table class="table" id="RawTable">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center;">Model</th>
+              <th scope="col" style="text-align: center;">Subject Consistency</th>
+              <th scope="col" style="text-align: center;">Background Consistency</th>
+              <th scope="col" style="text-align: center;">Temporal Flickering</th>
+              <th scope="col" style="text-align: center;">Motion Smoothness</th>
+              <th scope="col" style="text-align: center;">Dynamic Degree</th>
+              <th scope="col" style="text-align: center;">Aesthetic Quality</th>
+              <th scope="col" style="text-align: center;">Imaging Quality</th>
+              <th scope="col" style="text-align: center;">Object Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">LaVie</td>
+              <td style="text-align: center;">0.9141</td>
+              <td style="text-align: center; font-weight: bold;">0.9747</td>
+              <td style="text-align: center; font-weight: bold;">0.9830</td>
+              <td style="text-align: center;">0.9638</td>
+              <td style="text-align: center;">0.4972</td>
+              <td style="text-align: center; font-weight: bold;">0.5494</td>
+              <td style="text-align: center; font-weight: bold;">0.6190</td>
+              <td style="text-align: center; font-weight: bold;">0.9182</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">ModelScope</td>
+              <td style="text-align: center;">0.8987</td>
+              <td style="text-align: center;">0.9529</td>
+              <td style="text-align: center;">0.9828</td>
+              <td style="text-align: center;">0.9579</td>
+              <td style="text-align: center;">0.6639</td>
+              <td style="text-align: center;">0.5206</td>
+              <td style="text-align: center;">0.5857</td>
+              <td style="text-align: center;">0.8225</td>
+            </tr>
+            <tr>
+              <td scope="col" style="text-align: center;"><b>VideoCrafter</b></td>
+              <td scope="col" style="text-align: center;">0.8624</td>
+              <td scope="col" style="text-align: center;">0.9288</td>
+              <td scope="col" style="text-align: center;">0.9760</td>
+              <td scope="col" style="text-align: center;">0.9179</td>
+              <td scope="col" style="text-align: center;"><b>0.8972</b></td>
+              <td scope="col" style="text-align: center;">0.4441</td>
+              <td scope="col" style="text-align: center;">0.5722</td>
+              <td scope="col" style="text-align: center;">0.8734</td>
+            </tr>
+            <tr>
+              <td scope="col" style="text-align: center;"><b>CogVideo</b></td>
+              <td scope="col" style="text-align: center;"><b>0.9219</b></td>
+              <td scope="col" style="text-align: center;">0.9542</td>
+              <td scope="col" style="text-align: center;">0.9764</td>
+              <td scope="col" style="text-align: center;"><b>0.9647</b></td>
+              <td scope="col" style="text-align: center;">0.4222</td>
+              <td scope="col" style="text-align: center;">0.3818</td>
+              <td scope="col" style="text-align: center;">0.4103</td>
+              <td scope="col" style="text-align: center;">0.7340</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      
+      <hr style="margin: 20px 0;">
+
+      <div class="table-container">
+        <table class="table" id="RawTable">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center;">Model</th>
+              <th scope="col" style="text-align: center;">Multiple Objects</th>
+              <th scope="col" style="text-align: center;">Human Action</th>
+              <th scope="col" style="text-align: center;">Color</th>
+              <th scope="col" style="text-align: center;">Spatial Relationship</th>
+              <th scope="col" style="text-align: center;">Scene</th>
+              <th scope="col" style="text-align: center;">Appearance Style</th>
+              <th scope="col" style="text-align: center;">Temporal Style</th>
+              <th scope="col" style="text-align: center;">Overall Consistency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="col" style="text-align: center;"><b>LaVie</b></td>
+              <td scope="col" style="text-align: center;">0.3332</td>
+              <td scope="col" style="text-align: center;"><b>0.9680</b></td>
+              <td scope="col" style="text-align: center;"><b>0.8639</b></td>
+              <td scope="col" style="text-align: center;">0.3409</td>
+              <td scope="col" style="text-align: center;"><b>0.5269</b></td>
+              <td scope="col" style="text-align: center;"><b>0.2356</b></td>
+              <td scope="col" style="text-align: center;"><b>0.2593</b></td>
+              <td scope="col" style="text-align: center;"><b>0.2641</b></td>
+            </tr>
+            <tr>
+              <td scope="col" style="text-align: center;"><b>ModelScope</b></td>
+              <td scope="col" style="text-align: center;"><b>0.3898</b></td>
+              <td scope="col" style="text-align: center;">0.9240</td>
+              <td scope="col" style="text-align: center;">0.8172</td>
+              <td scope="col" style="text-align: center;">0.3368</td>
+              <td scope="col" style="text-align: center;">0.3926</td>
+              <td scope="col" style="text-align: center;">0.2339</td>
+              <td scope="col" style="text-align: center;">0.2537</td>
+              <td scope="col" style="text-align: center;">0.2567</td>
+            </tr>
+            <tr>
+              <td scope="col" style="text-align: center;"><b>VideoCrafter</b></td>
+              <td scope="col" style="text-align: center;">0.2593</td>
+              <td scope="col" style="text-align: center;">0.9300</td>
+              <td scope="col" style="text-align: center;">0.7884</td>
+              <td scope="col" style="text-align: center;"><b>0.3674</b></td>
+              <td scope="col" style="text-align: center;">0.4336</td>
+              <td scope="col" style="text-align: center;">0.2157</td>
+              <td scope="col" style="text-align: center;">0.2542</td>
+              <td scope="col" style="text-align: center;">0.2521</td>
+            </tr>
+            <tr>
+              <td scope="col" style="text-align: center;"><b>CogVideo</b></td>
+              <td scope="col" style="text-align: center;">0.1811</td>
+              <td scope="col" style="text-align: center;">0.7820</td>
+              <td scope="col" style="text-align: center;">0.7957</td>
+              <td scope="col" style="text-align: center;">0.1824</td>
+              <td scope="col" style="text-align: center;">0.2824</td>
+              <td scope="col" style="text-align: center;">0.2201</td>
+              <td scope="col" style="text-align: center;">0.0780</td>
+              <td scope="col" style="text-align: center;">0.0770</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section> -->
+
+
+
+
+<section class="section"  style="margin-top:-100px; margin-bottom:-140px;">
+  <div class="hero-body">
+
+    <div class="container is-max-desktop">
+
+
+      <div class="section-title">
+        <h2 class="title is-3">Video Quality Dimensions</h2>
+        <h2 class="subtitle has-text-centered">Display of Evaluation Examples in Different Dimensions.<br>(the larger score denotes a better performance)</h2>
+      </div>
+      <!-- Single Line -->
+      <div id="results-carousel-face" class="carousel results-carousel">
+        <div class="item item-puppet">
+          <div class="carousel-content">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/flicker_and_subject.mp4" type="video/mp4">
+              </video>
+          </div>
+        </div>
+        <div class="item item-round_bird">
+          <div class="carousel-content">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/backdround_and_motion.mp4" type="video/mp4">
+              </video>      
+          </div>
+        </div>
+        <div class="item item-puppet">
+          <div class="carousel-content">
+            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/dynamic_and_aesthetic.mp4" type="video/mp4">
+            </video>    
+          </div>
+        </div>
+        <div class="item item-round_bird">
+          <div class="carousel-content">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/technical_and_flicker.mp4" type="video/mp4">
+              </video>      
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</section>
+
+
+<section class="section"  style="margin-top:-100px; margin-bottom:-60px;">
+  <div class="hero-body">
+
+    <div class="container is-max-desktop">
+
+
+      <div class="section-title">
+        <h2 class="title is-3">Video-Condition Consistency Dimensions</h2>
+        <h2 class="subtitle has-text-centered">Display of Evaluation Examples in Different Dimensions.<br>(the larger score denotes a better performance)</h2>
+      </div>
+      <!-- Single Line -->
+      <div id="results-carousel-face" class="carousel results-carousel">
+        <div class="item item-puppet">
+          <div class="carousel-content">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/object_and_multiple.mp4" type="video/mp4">
+              </video>
+          </div>
+        </div>
+        <div class="item item-round_bird">
+          <div class="carousel-content">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/action_and_color.mp4" type="video/mp4">
+              </video>      
+          </div>
+        </div>
+        <div class="item item-puppet">
+          <div class="carousel-content">
+            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/relation_and_scene.mp4" type="video/mp4">
+            </video>    
+          </div>
+        </div>
+        <div class="item item-round_bird">
+          <div class="carousel-content">
+            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/appearance_and_temporal_style.mp4" type="video/mp4">
+            </video>   
+          </div>
+        </div>
+        <div class="item item-puppet">
+          <div class="carousel-content">
+            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/overall_and_object.mp4" type="video/mp4">
+            </video>    
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</section>
+
+
+
+<!-- prompt_suite_stats -->
+<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">Prompt Suite Statistics</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/prompt_suite_stats.jpg" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          The two graphs provide an overview of our prompt suites. <b>Left: </b>the word cloud to visualize word distribution of our prompt suites. <b>Right: </b>the
+          number of prompts across different evaluation dimensions and different content categories.
+        </p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Radar_sd -->
+<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">T2V vs. T2I</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/fig_paper_radar_sd_new.jpg" style="width:700px; margin-top:10px;margin-bottom:10px;;margin-left:40px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          We use VBench to evaluate other models and baselines for further comparative analysis of T2V models, such as text-to-image (T2I) generation models
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
+    </div>
+  </div>
+</section>
+
+
+<!-- Radar_per_Class -->
+<section class="section" style="margin-top:-100px; margin-bottom:-50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">VBench Results across Eight Content Categories</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/fig_paper_radar_per_class_new.jpg" style="width:1500px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          For each chart, we plot the VBench evaluation results across eight different content categories, benchmarked by our <i>Prompt Suite per Category</i>.
+        </p>
+        <p class="is-size-7" style="margin-top: 0;">
+          The results are linearly normalized between 0 and 1 for better visibility across categories.
+    </div>
+  </div>
+</section>
+
+
+<!-- image suite crop pipe -->
+<section class="section" style="margin-top:-100px; margin-bottom:-10px;">
+  <div class="container is-max-desktop" style="width: 33%; max-width: none;">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">Image Suite Cropping Pipeline of VBench++</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div style="margin-top:20px; margin-bottom: 10px;">
+              <img src="assets/vbench/images/dim_results/fig_image_crop_pipeline_vertical.jpg" style="width: 100%;" alt="Image 1">
+              <p style="font-size: 18px; font-weight: bold;">(a) Cropping Pipeline for Portrait Images.</p>
+            </div>
+          
+            <!-- 第二张图片及其标注 -->
+            <div>
+              <img src="assets/vbench/images/dim_results/fig_image_crop_pipeline_horizontal.jpg" style="width: 100%;" alt="Image 2">
+              <p style="font-size: 18px; font-weight: bold;">(b) Cropping Pipeline for Landscape Images.</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0;">
+          <b>Image Suite Pipeline for Adaptive Aspect Ratio Cropping.</b> We provide a pipeline that crops images to various aspect ratios while preserving key content. <b>(a) Portrait Images.</b>  If the original image's width is less than its height, it is first cropped to a 1:1 ratio (red bounding box). followed by a second crop to a 16:9 aspect ratio (yellow bounding box). Additional crops interpolate between the 1:1 red box and the 16:9 yellow box to produce other common ratios (1:1, 7:4, 8:5, 16:9). <b>(b) Landscape Images.</b> If the original image's width is greater than its height, we first crop the image to a 16:9 aspect ratio (red bounding box), and further crop the 16:9 image to a 1:1 aspect ratio (yellow bounding box). We then perform additional crops between the 16:9 red box and 1:1 yellow box to obtain the common aspect ratios (1:1, 7:4, 8:5, 16:9).
+        </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- image suite stats -->
+<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title">
+          <h2 class="title is-3 is-centered">Content Distribution of Image Suite</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="assets/vbench/images/dim_results/pie_chart_image_suite.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <!-- <p style="margin-top: 0; margin-bottom: 30px;">
+          Our image suite encompasses a wide variety of content to ensure a comprehensive evaluation.
+        </p> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- BibTeX -->
+<section class="hero is-light is-small" id="BibTeX" >
+  <div class="container is-max-desktop content" style="margin-top: 40px; margin-bottom: 20px;">
+    <h2 class="title">BibTeX</h2>
+    <p>If you find our work useful, please consider citing our paper:</p>
+    <pre><code>@InProceedings{huang2023vbench,
+      title={{VBench}: Comprehensive Benchmark Suite for Video Generative Models},
+      author={Huang, Ziqi and He, Yinan and Yu, Jiashuo and Zhang, Fan and Si, Chenyang and Jiang, Yuming and Zhang, Yuanhan and Wu, Tianxing and Jin, Qingyang and Chanpaisit, Nattapol and Wang, Yaohui and Chen, Xinyuan and Wang, Limin and Lin, Dahua and Qiao, Yu and Liu, Ziwei},
+      booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+      year={2024}
+}
+
+@article{huang2024vbench++,
+  title={VBench++: Comprehensive and Versatile Benchmark Suite for Video Generative Models},
+  author={Huang, Ziqi and Zhang, Fan and Xu, Xiaojie and He, Yinan and Yu, Jiashuo and Dong, Ziyue and Ma, Qianli and Chanpaisit, Nattapol and Si, Chenyang and Jiang, Yuming and Wang, Yaohui and Chen, Xinyuan and Chen, Ying-Cong and Wang, Limin and Lin, Dahua and Qiao, Yu and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2411.13503},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+
+
+
+
+<!-- footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://vchitect.github.io/VBench-project/">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/Vchitect/VBench" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
