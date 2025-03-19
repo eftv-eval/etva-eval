@@ -50,7 +50,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title"><span style="color:#B9770E; font-weight: bold; font-style: italic">ETVA</span> :Evaluation of Text-to-Video Alignment via Fine-grained Question Generation and Answering</h1>
+          <h1 class="title is-2 publication-title"><span style="color:#B9770E; font-weight: bold; font-style: italic">ETVA</span>: Evaluation of Text-to-Video Alignment via Fine-grained Question Generation and Answering</h1>
               <span class="author-block">
                   <a href="https://ziqihuangg.github.io" target="_blank">Kaisi Guan</a><sup>1,2</sup>,
               </span>
@@ -61,7 +61,7 @@
                   <a href="" target="_blank">Yuchong Sun</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://github.com/zhangfan-p" target="_blank">Peng Zhang</a><sup>2*</sup>,
+                <a href="https://github.com/zhangfan-p" target="_blank">Peng Zhang</a><sup>2</sup>,
               </span>
               <br>
               <span class="author-block">
@@ -110,27 +110,17 @@
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
-                <span>Code(Coming Soon)</span>
+                <span>Code (Coming Soon)</span>
               </a>
             </span>
-            <!-- Huggingface Demo Link. -->
+            <!-- Huggingface Dataset Link. -->
             <span class="link-block">
               <a href="https://eftv-eval.github.io/etva-eval/" target="_blank"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                   <img src="assets/hf-logo.svg" style="display:block;width:330px;height:240px" />
                 </span>
-                <span>Dataset(Comming Soon)</span>
-              </a>
-            </span>
-
-            <span class="link-block">
-              <a href="https://www.youtube.com/watch?v=7IhCC8Qqn8Y" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fab fa-youtube"></i>
-                </span>
-                <span>Video</span>
+                <span>Dataset (Comming Soon)</span>
               </a>
             </span>
           </div>
@@ -142,139 +132,154 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop" style="width: 50%; max-width: none;">
+
+<section class="hero caser">
+  <div class="container is-max-desktop" style="width: 65%; max-width: none;">
       <div class="hero-body">
-            <img src="assets/vbench/images/dim_results/fig_extention_teaser.jpg" style="width:100%; margin-bottom:10px" alt="Teaser."/>
+            <img src="assets/images/case.pdf" style="width:100%; margin-bottom:10px" alt="Case."/>
       <p style="margin-top: 0;">
-        <b>Overview of VBench.</b> We propose VBench, a comprehensive benchmark suite for video generative models. We design a comprehensive and hierarchical <b>Evaluation Dimension Suite</b> to decompose "video generation quality" into multiple well-defined dimensions to facilitate fine-grained and objective evaluation. For each dimension and each content category, we carefully design a <b>Prompt Suite</b> as test cases, and sample <b>Generated Videos</b> from a set of video generation models. For each evaluation dimension, we specifically design an <b>Evaluation Method Suite</b>, which uses carefully crafted method or designated pipeline for automatic objective evaluation. We also conduct <b>Human Preference Annotation</b> for the generated videos for each dimension, and show that VBench evaluation results are <b>well aligned with human perceptions</b>. VBench can provide valuable insights from multiple perspectives. <b>VBench++</b> supports a wide range of video generation tasks, including text-to-video and image-to-video, with an adaptive Image Suite for fair evaluation across different settings. It evaluates not only technical quality but also the trustworthiness of generative models, offering a comprehensive view of model performance. We continually incorporate more video generative models into VBench to inform the community about the evolving landscape of video generation.
+        <span style="color:#B9770E; font-weight: bold; font-style: italic">ETVA</span> is a text-to-video alignment evaluation framework that provides fine-grained assessment scores highly consistent with human judgment.
       </p>
     </div>
   </div>
 </section>
-
 <!-- Abstract. -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h2 class="title is-3"> 
+      Abstract</h2>
+  </div>
+  </section>
 <section>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 is-centered">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Precisely evaluating semantic alignment between text prompts and generated videos remains a challenge in Text-to-Video (T2V) Generation. Existing text-to-video alignment metrics like CLIPScore only generate coarse-grained Ωscores without fine-grained alignment details, failing to align with human preference. To address this limitation,
-we propose ETVA, a novel Evaluation method of Text-to-Video Alignment via fine-grained question generation and answering. First, a multi-agent system parses prompts into semantic scene graphs to generate atomic questions. Then we design a knowledge-augmented multi-stage reasoning framework for question answering, where an auxiliary LLM first retrieves relevant common-sense knowledge
-(e.g., physical laws), and then video LLM answer the generated questions through a multi-stage reasoning mechanism. Extensive experiments demonstrate that ETVA achieves a Spearman’s correlation coefficient of 58.47, showing much higher correlation with human judgment than existing metrics which attain only 31.0. We also construct a comprehensive benchmark specifically designed for text-to-video alignment evaluation, featuring 2k diverse prompts and 12k atomic questions spanning 10 categories. Through a systematic evaluation of 15 existing text-to-video models, we
-identify their key capabilities and limitations, paving the way for next-generation T2V generation. All codes and datasets will be publicly available soon.
+            Precisely evaluating semantic alignment between text prompts and generated videos remains a challenge in Text-to-Video (T2V) Generation. Existing <b>text-to-video alignment</b> metrics like CLIPScore only generate coarse-grained scores without fine-grained alignment details, failing to align with human preference. To address this limitation, we propose <b>ETVA</b>, a novel <b>Evaluation method of Text-to-Video Alignment via fine-grained question generation and answering</b>. First, a multi-agent system parses prompts into semantic scene graphs to generate atomic questions. Then we design a knowledge-augmented multi-stage reasoning framework for question answering, where an auxiliary LLM first retrieves relevant common-sense knowledge (e.g., physical laws), and then video LLM answer the generated questions through a multi-stage reasoning mechanism. Extensive experiments demonstrate that ETVA achieves a <b>Spearman’s correlation coefficient of 58.47</b>, showing much higher correlation with human judgment than existing metrics which attain only 31.0. We also construct a comprehensive benchmark specifically designed for text-to-video alignment evaluation, featuring <b>2k diverse prompts</b> and <b>12k atomic questions</b> spanning 10 categories. Through a systematic evaluation of <b>15 existing text-to-video models</b>, we identify their key capabilities and limitations, paving the way for next-generation T2V generation. 
           </p>
         </div>
       </div>
     </div>
 </section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop" style="width: 50%; max-width: none;">
+      <div class="hero-body">
+            <img src="assets/images/teaser.pdf" style="width:90%; margin-bottom:10px" alt="Teaser."/>
+      <p style="margin-top: 0;">
+        Figure 1. llustration of how ETVA works and comparison with existing metrics.
+      </p>
+    </div>
+  </div>
+</section> -->
 <!--/ Abstract. -->
 
 <!-- Method. -->
 <!--/ Method. -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h2 class="title is-3"> 
+      Our ETVA Approach</h2>
+  </div>
+  </section>
 
-<!-- Radar_Recent Models -->
+<section class="hero caser">
+  <div class="container is-max-desktop" style="width: 50%; max-width: none;">
+      <div class="hero-body">
+      <p style="margin-bottom: 30px;">
+        ETVA contains a <b>multi-agent framework</b> for generating atomic questions and a <b>knowledge-augmented multi-stage reasoning framework</b> for question answering.
+      </p>
+      <img src="assets/images/method.pdf" style="width:100%; margin-bottom:10px" alt="Case."/>
+    </div>
+  </div>
+</section>
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h2 class="title is-3"> 
+      Our Proposed ETVABench</h2>
+  </div>
+</section>
+<section class="hero caser">
+  <div class="container is-max-desktop" style="width: 50%; max-width: none;">
+      <div class="hero-body">
+      <p style="margin-bottom: 30px;">
+        We construct <b>ETVABench-2k</b> for evaluating Open-Source Text-to-Video models and <b>ETVABench-105</b> for evaluating Open-Source and Closed-Source Text-to-Video models. A question-driven classification method decomposes these prompts to <b>10 distinct categories</b>.
+      </p>
+      <img src="assets/images/category.pdf" style="width:100%; margin-bottom:10px" alt="Case."/>
+      <img src="assets/images/prompts.png" style="width:100%; margin-bottom:10px" alt="Case."/>
+    </div>
+  </div>
+</section>
+<!-- LeaderBoard -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h2 class="title is-3"> 
+      LeaderBoard</h2>
+  </div>
+</section>
+
+
+
+<!-- Radar_Open Source -->
 <section class="section" style="margin-top:-50px; margin-bottom:-50px;">
   <div class="container is-max-desktop">
     <div class="hero-body">
         <div class="section-title">
-          <h2 class="title is-3 is-centered">VBench Evaluation Results of Recent Video Generative Models</h2>
+          <h2 class="title is-3 is-centered">Evaluation Results on EFTVBench-105</h2>
         </div>
         <div class="columns is-centered has-text-centered">
           <div class="column">
             <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/all-dim.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+              <img id="architecture" src="assets/images/benchmark1.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
             </div>
           </div>
         </div>
         <p style="margin-top: 0;">
-          We visualize the evaluation results of the 12 most recent top-performing long video generation models across 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
+          We visualize the evaluation results of <b>10 open sourced Text-to-Video models</b> and <b>5 closed sourced Text-to-Video models</b> across 10 dimensions on ETVABench-105. 
         </p>
-        <p class="is-size-7" style="margin-top: 0;">
-          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
-    </div>
-  </div>
-</section>
-
-<!-- LeaderBoard -->
-<section class="hero is-light" style="margin-top:-50px; margin-bottom:-50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">Leaderboard</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <iframe
-            src="https://vchitect-vbench-leaderboard.hf.space"
-            frameborder="0"
-            width="1400"
-            height="700"
-           ></iframe>
-          </div>
-        </div>
+        
     </div>
   </div>
 </section>
 
 
-<!-- Radar_Open Source -->
-<section class="section" style="margin-top:-50px; margin-bottom:-100px;">
+<section class="section" style="margin-top:-150px; margin-bottom:-50px;">
   <div class="container is-max-desktop">
     <div class="hero-body">
         <div class="section-title">
-          <h2 class="title is-3 is-centered">VBench Evaluation Results of Open-Source Models</h2>
+          <h2 class="title is-3 is-centered">Evaluation Results on EFTVBench-2k</h2>
         </div>
         <div class="columns is-centered has-text-centered">
           <div class="column">
             <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/radar-open-new.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
+              <img id="architecture" src="assets/images/radar.pdf" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
             </div>
           </div>
         </div>
         <p style="margin-top: 0;">
-          We visualize the evaluation results of various publicly available video generation models across 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
+          We visualize the evaluation results of <b>10 open sourced Text-to-Video models</b> across 10 dimensions on EFTVBench-2k.
         </p>
-        <p class="is-size-7" style="margin-top: 0;">
-          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
     </div>
   </div>
 </section>
 
-<!-- Radar_Close Source -->
-<section class="section" style="margin-top:-150px; margin-bottom:-100px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">VBench Evaluation Results of Closed Source Models</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/radar-close-new.jpg" style="width:600px; margin-top:10px;margin-bottom:10px;"/>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top: 0;">
-          We visualize the evaluation results of various closed sourced video generation models across 16 VBench dimensions. We normalize the results per dimension for clearer comparisons.
-        </p>
-        <p class="is-size-7" style="margin-top: 0;">
-          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
-    </div>
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h2 class="title is-3"> 
+      More Examples</h2>
   </div>
-</section>
+  </section>
 
-<section class="section"  style="margin-top:-100px; margin-bottom:-140px;">
+<section class="section"  style="margin-top:-50px; margin-bottom:-140px;">
   <div class="hero-body">
 
     <div class="container is-max-desktop">
 
 
       <div class="section-title">
-        <h2 class="title is-3">Video Quality Dimensions</h2>
-        <h2 class="subtitle has-text-centered">Display of Evaluation Examples in Different Dimensions.<br>(the larger score denotes a better performance)</h2>
+        <!-- <h2 class="title is-3">Video Quality Dimensions</h2> -->
+        <h2 class="subtitle has-text-centered">Example 1:  Water is slowly pouring out of glass cup in the space station.</h2>
       </div>
       <!-- Single Line -->
       <div id="results-carousel-face" class="carousel results-carousel">
@@ -311,186 +316,50 @@ identify their key capabilities and limitations, paving the way for next-generat
   </div>
 </section>
 
-
-<section class="section"  style="margin-top:-100px; margin-bottom:-60px;">
+<section class="section"  style="margin-top:-50px; margin-bottom:-140px;">
   <div class="hero-body">
 
     <div class="container is-max-desktop">
 
 
       <div class="section-title">
-        <h2 class="title is-3">Video-Condition Consistency Dimensions</h2>
-        <h2 class="subtitle has-text-centered">Display of Evaluation Examples in Different Dimensions.<br>(the larger score denotes a better performance)</h2>
+        <!-- <h2 class="title is-3">Video Quality Dimensions</h2> -->
+        <h2 class="subtitle has-text-centered">Example 2:  A leaf turns from green to red.</h2>
       </div>
       <!-- Single Line -->
       <div id="results-carousel-face" class="carousel results-carousel">
         <div class="item item-puppet">
           <div class="carousel-content">
                 <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/object_and_multiple.mp4" type="video/mp4">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/flicker_and_subject.mp4" type="video/mp4">
               </video>
           </div>
         </div>
         <div class="item item-round_bird">
           <div class="carousel-content">
                 <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/action_and_color.mp4" type="video/mp4">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/backdround_and_motion.mp4" type="video/mp4">
               </video>      
           </div>
         </div>
         <div class="item item-puppet">
           <div class="carousel-content">
             <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/relation_and_scene.mp4" type="video/mp4">
+              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/dynamic_and_aesthetic.mp4" type="video/mp4">
             </video>    
           </div>
         </div>
         <div class="item item-round_bird">
           <div class="carousel-content">
-            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/appearance_and_temporal_style.mp4" type="video/mp4">
-            </video>   
-          </div>
-        </div>
-        <div class="item item-puppet">
-          <div class="carousel-content">
-            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/overall_and_object.mp4" type="video/mp4">
-            </video>    
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
+                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/technical_and_flicker.mp4" type="video/mp4">
+              </video>      
           </div>
         </div>
       </div>
     
   </div>
 </section>
-
-
-
-<!-- prompt_suite_stats -->
-<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">Prompt Suite Statistics</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/prompt_suite_stats.jpg" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top: 0;">
-          The two graphs provide an overview of our prompt suites. <b>Left: </b>the word cloud to visualize word distribution of our prompt suites. <b>Right: </b>the
-          number of prompts across different evaluation dimensions and different content categories.
-        </p>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Radar_sd -->
-<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">T2V vs. T2I</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/fig_paper_radar_sd_new.jpg" style="width:700px; margin-top:10px;margin-bottom:10px;;margin-left:40px;"/>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top: 0;">
-          We use VBench to evaluate other models and baselines for further comparative analysis of T2V models, such as text-to-image (T2I) generation models
-        </p>
-        <p class="is-size-7" style="margin-top: 0;">
-          The values have been normalized for better readability of the chart. The normalization process involves scaling each set of performance values to a common scale between 0.3 and 0.8. The formula used for normalization is: (value - min_value) / (max_value - min_value).
-    </div>
-  </div>
-</section>
-
-
-<!-- Radar_per_Class -->
-<section class="section" style="margin-top:-100px; margin-bottom:-50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">VBench Results across Eight Content Categories</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/fig_paper_radar_per_class_new.jpg" style="width:1500px; margin-top:10px;margin-bottom:10px;"/>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top: 0;">
-          For each chart, we plot the VBench evaluation results across eight different content categories, benchmarked by our <i>Prompt Suite per Category</i>.
-        </p>
-        <p class="is-size-7" style="margin-top: 0;">
-          The results are linearly normalized between 0 and 1 for better visibility across categories.
-    </div>
-  </div>
-</section>
-
-
-<!-- image suite crop pipe -->
-<section class="section" style="margin-top:-100px; margin-bottom:-10px;">
-  <div class="container is-max-desktop" style="width: 33%; max-width: none;">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">Image Suite Cropping Pipeline of VBench++</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <div style="margin-top:20px; margin-bottom: 10px;">
-              <img src="assets/vbench/images/dim_results/fig_image_crop_pipeline_vertical.jpg" style="width: 100%;" alt="Image 1">
-              <p style="font-size: 18px; font-weight: bold;">(a) Cropping Pipeline for Portrait Images.</p>
-            </div>
-          
-            <!-- 第二张图片及其标注 -->
-            <div>
-              <img src="assets/vbench/images/dim_results/fig_image_crop_pipeline_horizontal.jpg" style="width: 100%;" alt="Image 2">
-              <p style="font-size: 18px; font-weight: bold;">(b) Cropping Pipeline for Landscape Images.</p>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top: 0;">
-          <b>Image Suite Pipeline for Adaptive Aspect Ratio Cropping.</b> We provide a pipeline that crops images to various aspect ratios while preserving key content. <b>(a) Portrait Images.</b>  If the original image's width is less than its height, it is first cropped to a 1:1 ratio (red bounding box). followed by a second crop to a 16:9 aspect ratio (yellow bounding box). Additional crops interpolate between the 1:1 red box and the 16:9 yellow box to produce other common ratios (1:1, 7:4, 8:5, 16:9). <b>(b) Landscape Images.</b> If the original image's width is greater than its height, we first crop the image to a 16:9 aspect ratio (red bounding box), and further crop the 16:9 image to a 1:1 aspect ratio (yellow bounding box). We then perform additional crops between the 16:9 red box and 1:1 yellow box to obtain the common aspect ratios (1:1, 7:4, 8:5, 16:9).
-        </p>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- image suite stats -->
-<section class="section" style="margin-top:-100px; margin-bottom:-100px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <div class="section-title">
-          <h2 class="title is-3 is-centered">Content Distribution of Image Suite</h2>
-        </div>
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <div class="publication-img">
-              <img id="architecture" src="assets/vbench/images/dim_results/pie_chart_image_suite.png" style="width:1000px; margin-top:10px;margin-bottom:10px;"/>
-            </div>
-          </div>
-        </div>
-        <!-- <p style="margin-top: 0; margin-bottom: 30px;">
-          Our image suite encompasses a wide variety of content to ensure a comprehensive evaluation.
-        </p> -->
-    </div>
-  </div>
-</section>
-
-
-
 
 
 
