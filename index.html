@@ -52,29 +52,29 @@
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title"><span style="color:#B9770E; font-weight: bold; font-style: italic">ETVA</span>: Evaluation of Text-to-Video Alignment via Fine-grained Question Generation and Answering</h1>
               <span class="author-block">
-                  <a href="https://ziqihuangg.github.io" target="_blank">Kaisi Guan</a><sup>1,2</sup>,
+                  <a href="https://scholar.google.com/citations?user=BB_Mw10AAAAJ&hl=en&oi=ao" target="_blank">Kaisi Guan</a><sup>1,2</sup>,
               </span>
               <span class="author-block">
-                  <a href="https://github.com/yinanhe" target="_blank">Zhengfeng Lai</a><sup>2</sup>,
+                  <a href="https://zjujefflai.github.io/" target="_blank">Zhengfeng Lai</a><sup>2</sup>,
               </span>
               <span class="author-block">
-                  <a href="" target="_blank">Yuchong Sun</a><sup>1</sup>,
+                  <a href="https://scholar.google.com/citations?user=DuSxNqgAAAAJ&hl=zh-CN" target="_blank">Yuchong Sun</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://github.com/zhangfan-p" target="_blank">Peng Zhang</a><sup>2</sup>,
+                <a href="https://scholar.google.com/citations?user=4Y8T3n0AAAAJ" target="_blank">Peng Zhang</a><sup>2</sup>,
               </span>
               <br>
               <span class="author-block">
-                  <a href="https://chenyangsi.top/" target="_blank">Wei Liu</a><sup>2</sup>,
+                  <a href="https://www.cs.unc.edu/~wliu/" target="_blank">Wei Liu</a><sup>2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://yumingj.github.io/" target="_blank">Xiaojiang Liu</a><sup>2</sup>,
+                <a href="https://scholar.google.com/citations?user=ukdqC6IAAAAJ&hl=zh-CN" target="_blank">Xiaojiang Liu</a><sup>2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://zhangyuanhan-ai.github.io/" target="_blank">Meng Cao</a><sup>2</sup>,
+                <a href="https://openreview.net/profile?id=~Meng_Cao2" target="_blank">Meng Cao</a><sup>2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://tianxingwu.github.io/" target="_blank">Ruihua Song</a><sup>1&#8224</sup>,
+                <a href="https://scholar.google.com/citations?user=v5LctN8AAAAJ" target="_blank">Ruihua Song</a><sup>1&#8224</sup>,
               </span>
           <!-- <br> -->
 
@@ -275,44 +275,223 @@
   <div class="hero-body">
 
     <div class="container is-max-desktop">
-
-
       <div class="section-title">
         <!-- <h2 class="title is-3">Video Quality Dimensions</h2> -->
-        <h2 class="subtitle has-text-centered">Example 1:  Water is slowly pouring out of glass cup in the space station.</h2>
+        <h2 class="subtitle has-text-centered">Example 1:  Water is slowly pouring out of glass cup in the <font color="red">space station</font>.</h2>
       </div>
       <!-- Single Line -->
       <div id="results-carousel-face" class="carousel results-carousel">
-        <div class="item item-puppet">
-          <div class="carousel-content">
-                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/flicker_and_subject.mp4" type="video/mp4">
+        <div class="item vidu">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+                <source src="assets/videos/video1_resized/vidu.mp4" type="video/mp4">
               </video>
+              <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+                <p style="font-size: 16px; color: #333;">
+                  BLIP_BLEU: 0.264
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  CLIPScore: 0.384
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  VideoScore: 2.110
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  <b>ETVA: 0.750</b>
+                </p>
+              </div>
           </div>
         </div>
-        <div class="item item-round_bird">
-          <div class="carousel-content">
-                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/backdround_and_motion.mp4" type="video/mp4">
-              </video>      
+        <div class="item kling1-5">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+                <source src="assets/videos/video1_resized/klingv1-5.mp4" type="video/mp4">
+              </video>
+              <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+                <p style="font-size: 16px; color: #333;">
+                  BLIP_BLEU: 0.163
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  CLIPScore: 0.384
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  VideoScore: 1.960
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  <b>ETVA: 0.375</b>
+                </p>
+              </div>      
           </div>
         </div>
-        <div class="item item-puppet">
-          <div class="carousel-content">
-            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/dynamic_and_aesthetic.mp4" type="video/mp4">
-            </video>    
+        <div class="item sora">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/sora.mp4" type="video/mp4">
+            </video>  
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.081
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.374
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 1.690
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 1.000</b>
+              </p>
+            </div>  
           </div>
         </div>
-        <div class="item item-round_bird">
-          <div class="carousel-content">
-                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/technical_and_flicker.mp4" type="video/mp4">
-              </video>      
+        <div class="item pika">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+                <source src="assets/videos/video1_resized/pika.mp4" type="video/mp4">
+              </video> 
+              <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+                <p style="font-size: 16px; color: #333;">
+                  BLIP_BLEU: 0.194
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  CLIPScore: 0.361
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  VideoScore: 1.870
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.875</b>
+                </p>
+              </div>     
           </div>
+        </div>
+      <div class="item kling">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/kling.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.176
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.373
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.004
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.500</b>
+              </p>
+            </div>      
         </div>
       </div>
-    
+      <div class="item hunyuan">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/hunyuan.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.183
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.320
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.006
+              </p>
+              <p style="font-size: 16px; color: #333;">
+              <b>ETVA: 0.375</b>
+              </p>
+            </div>      
+        </div>
+      </div>
+      <div class="item cogvideox-5b">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/cogvideox-5b.mp4" type="video/mp4">
+            </video> 
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.132
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.366
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.330
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.375</b>
+              </p>
+            </div>     
+        </div>
+      </div>
+      <div class="item cogvideox-2b">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/cogvideox-2b.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.203
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.321
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.010
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.375</b>
+              </p>
+            </div>      
+        </div>
+      </div>
+      <div class="item mochi">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/mochi.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.139
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.323
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.213
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.625</b>
+              </p>
+            </div>      
+        </div>
+      </div>
+      <div class="item opensora">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video1_resized/opensora.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.264
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.318
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.271
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.250</b>
+              </p>
+            </div>      
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -320,46 +499,225 @@
   <div class="hero-body">
 
     <div class="container is-max-desktop">
-
-
       <div class="section-title">
         <!-- <h2 class="title is-3">Video Quality Dimensions</h2> -->
-        <h2 class="subtitle has-text-centered">Example 2:  Water is slowly pouring out of glass cup in the space station.</h2>
+        <h2 class="subtitle has-text-centered">Example 2: A leaf turns from <font color="red">green to red</font>.</h2>
       </div>
       <!-- Single Line -->
       <div id="results-carousel-face" class="carousel results-carousel">
-        <div class="item item-puppet">
-          <div class="carousel-content">
-                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/flicker_and_subject.mp4" type="video/mp4">
+        <div class="item vidu">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+                  <source src="assets/videos/video2_resized/vidu.mp4" type="video/mp4">
+                </video>
+                <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+                  <p style="font-size: 16px; color: #333;">
+                    BLIP_BLEU: 0.177
+                  </p>
+                  <p style="font-size: 16px; color: #333;">
+                    CLIPScore: 0.343
+                  </p>
+                  <p style="font-size: 16px; color: #333;">
+                    VideoScore: 2.434
+                  </p>
+                  <p style="font-size: 16px; color: #333;">
+                    <b>ETVA: 1.000</b>
+                  </p>
+                </div>
+          </div>
+        </div>
+        <div class="item kling1-5">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+                <source src="assets/videos/video2_resized/klingv1-5.mp4" type="video/mp4">
               </video>
+              <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+                <p style="font-size: 16px; color: #333;">
+                  BLIP_BLEU: 0.268
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  CLIPScore: 0.347
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  VideoScore: 2.477
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  <b>ETVA: 0.500</b>
+                </p>
+              </div>      
           </div>
         </div>
-        <div class="item item-round_bird">
-          <div class="carousel-content">
-                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/backdround_and_motion.mp4" type="video/mp4">
-              </video>      
+        <div class="item sora">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/sora.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.201
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.378
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 1.946
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.250</b>
+              </p>
+            </div>    
           </div>
         </div>
-        <div class="item item-puppet">
-          <div class="carousel-content">
-            <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-              <source src="assets/vbench/images/dim_results/ppt_mp4_v3/dynamic_and_aesthetic.mp4" type="video/mp4">
-            </video>    
+        <div class="item pika">
+          <div class="carousel-content" style="display: flex; align-items: center;">
+                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+                <source src="assets/videos/video2_resized/pika.mp4" type="video/mp4">
+              </video>   
+              <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+                <p style="font-size: 16px; color: #333;">
+                  BLIP_BLEU: 0.212
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  CLIPScore: 0.344
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  VideoScore: 1.767
+                </p>
+                <p style="font-size: 16px; color: #333;">
+                  <b>ETVA: 0.500</b>
+                </p>
+              </div>   
           </div>
         </div>
-        <div class="item item-round_bird">
-          <div class="carousel-content">
-                <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="100%">
-                <source src="assets/vbench/images/dim_results/ppt_mp4_v3/technical_and_flicker.mp4" type="video/mp4">
-              </video>      
-          </div>
+      <div class="item kling">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/kling.mp4" type="video/mp4">
+            </video>
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.157
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.331
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.354
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.250</b>
+              </p>
+            </div>      
         </div>
       </div>
-    
+      <div class="item hunyuan">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/hunyuan.mp4" type="video/mp4">
+            </video> 
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.177
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.351
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.545
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 1.000</b>
+              </p> 
+            </div>     
+        </div>
+      </div>
+      <div class="item cogvideox-5b">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/cogvideox-5b.mp4" type="video/mp4">
+            </video>  
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.128
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.324
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.713
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.250</b>
+              </p>
+            </div>    
+        </div>
+      </div>
+      <div class="item cogvideox-2b">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/cogvideox-2b.mp4" type="video/mp4">
+             </video>   
+             <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.277
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.321
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.707
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.500</b>
+            </div>  
+        </div>
+      </div>
+      <div class="item mochi">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/mochi.mp4" type="video/mp4">
+            </video>    
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.277
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.384
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.590
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.250</b>
+              </p>
+            </div>  
+        </div>
+      </div>
+      <div class="item opensora">
+        <div class="carousel-content" style="display: flex; align-items: center;">
+              <video id="dimensions" autoplay="" muted="" loop="" playsinline="" height="50%">
+              <source src="assets/videos/video2_resized/opensora.mp4" type="video/mp4">
+            </video>  
+            <div class="video-description" style="margin-left: 20px; max-width: 250px;">
+              <p style="font-size: 16px; color: #333;">
+                BLIP_BLEU: 0.264
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                CLIPScore: 0.339
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                VideoScore: 2.666
+              </p>
+              <p style="font-size: 16px; color: #333;">
+                <b>ETVA: 0.250</b>
+              </p>
+            </div>    
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
 
 
 
